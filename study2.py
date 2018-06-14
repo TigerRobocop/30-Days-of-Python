@@ -16,19 +16,17 @@ Liv
 """
 
 
-today = datetime.date.today()
-text = '{today.month}/{today.day}/{today.year}'.format(today=today)
-print(text)
-
 
 def make_messages(names, amounts):
     messages = []
     if len(names) == len(amounts):
         i = 0
+        today = datetime.date.today()
+        new_date = '{today.month}/{today.day}/{today.year}'.format(today=today)
         for name in names:
             new_msg = unf_message.format(
-                name = name,
-                date = 'some date',
+                name = name.title(),
+                date = new_date,
                 total = "%.2f" %(amounts[i])
             )
             i += 1
